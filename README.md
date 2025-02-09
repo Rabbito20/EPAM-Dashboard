@@ -4,6 +4,7 @@ Technologies used:
 - Python3.10
 - FastAPI
 - PostgreSQL + Optional ORM (SQLAlchemy)
+- Docker
 
 
 Start FastApi server:
