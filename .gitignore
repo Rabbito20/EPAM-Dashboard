@@ -1,0 +1,7 @@
+.idea/
+.venv/
+.venv1/
+git_PAT.txt
+*.egg-info/
+build/
+*/__pycache__

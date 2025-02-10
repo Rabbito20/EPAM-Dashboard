@@ -1,0 +1,41 @@
+#Config file
+[project]
+name = "fastapi-dash"
+version = "0.1.0"
+description = "Project management dashboard using Fastapi - service contains simple CRUD operations."
+authors = [
+    { name = "Nikola Djurovic", email = "nikola_djurovic@epam.com" }
+]
+readme = "README.md"
+requires-python = ">=3.13"
+
+dependencies = [
+    "fastapi[standard]~=0.115.8",
+    "uvicorn~=0.34.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "pre-commit",
+    "mypy",
+    "isort",
+    "pytest",
+    "flake8",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py313"]
+
+[tool.mypy]
+files = "."
+python_version = "3.13"
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
