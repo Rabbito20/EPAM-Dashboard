@@ -2,3 +2,9 @@
 .venv
 git_PAT.txt
 /.idea/workspace.xml
+.venv1
+/fastapi_dash.egg-info/top_level.txt
+/fastapi_dash.egg-info/SOURCES.txt
+/fastapi_dash.egg-info/PKG-INFO
+/fastapi_dash.egg-info/requires.txt
+/fastapi_dash.egg-info/dependency_links.txt
