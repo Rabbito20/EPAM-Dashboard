@@ -1,18 +1,21 @@
-#FROM ubuntu:latest
-FROM linuxmintd/mint21.3-amd64
+#FROM linuxmintd/mint21.3-amd64
+FROM python:3.13
 
 #WORKDIR /Documents/EPAM/Course_project/app
 #WORKDIR /home/zeka/Documents/EPAM/Course_project
-WORKDIR /docker_files
+WORKDIR .
 
 #ENTRYPOINT ["top", "-b"]
 
-COPY /app/main.py /docker_files/
+COPY /app/main.py .
 
-RUN apt-get update && apt-get install -y python3-pip \
-    pip install "fastapi[standard]"
+RUN apt-get update
+RUN apt-get install -y python3-pip
+RUN pip install "fastapi[standard]"
 
-COPY . /docker_files/
+COPY . .
 
-EXPOSE 8000
-CMD ["fastapi", "dev", "app/main.py"]
+EXPOSE 8080
+
+CMD ["uvicorn", "main:app"]
+#CMD ["fastapi", "run", "app/main.py"]
