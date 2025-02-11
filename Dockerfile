@@ -8,10 +8,12 @@ COPY /app/main.py .
 RUN apt-get update
 RUN apt-get install -y python3-pip
 RUN pip install "fastapi[standard]"
+#RUN cd app/
 
 COPY . .
 
 EXPOSE 8080
 
+#CMD ["cd", "app/"]
 CMD ["uvicorn", "main:app"]
 #CMD ["fastapi", "run", "app/main.py"]
