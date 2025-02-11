@@ -1,7 +1,7 @@
 Lab project for EPAM course.
 
 Technologies used:
-- Python3.10
+- Python3.13
 - FastAPI
 - PostgreSQL + Optional ORM (SQLAlchemy)
 - Docker
