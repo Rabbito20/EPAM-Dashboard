@@ -1,11 +1,7 @@
 #FROM linuxmintd/mint21.3-amd64
 FROM python:3.13
 
-#WORKDIR /Documents/EPAM/Course_project/app
-#WORKDIR /home/zeka/Documents/EPAM/Course_project
 WORKDIR .
-
-#ENTRYPOINT ["top", "-b"]
 
 COPY /app/main.py .
 
