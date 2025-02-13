@@ -1,0 +1,19 @@
+[project]
+name = "fastapi-dash"
+version = "0.1.0"
+description = "Project management dashboard using Fastapi - service contains simple CRUD operations."
+authors = [
+    { name = "Nikola Djurovic", email = "nikola_djurovic@epam.com" }
+]
+readme = "README.md"
+requires-python = "3.13"
+
+dynamic = ["dependencies"]
+dependencies = { file = ["requirements.txt"] }
+
+[project.urls]
+Homepage = "http://0.0.0.0/"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
