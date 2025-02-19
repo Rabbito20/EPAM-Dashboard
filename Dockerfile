@@ -1,13 +1,14 @@
 FROM python:3.13
 
-WORKDIR /dock_app
+WORKDIR /dash_app
 
-COPY ./requirements.txt .
+COPY ./app /dash_app/app
+COPY ./requirements.txt /dash_app
+COPY pyproject.toml /dash_app
 
 RUN apt-get update
+RUN pip install --upgrade pip
 RUN pip install "fastapi[standard]"
-
-COPY ./app /dock_app/app
 
 EXPOSE 8080
 
