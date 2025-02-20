@@ -9,5 +9,21 @@ authors = [
 readme = "README.md"
 requires-python = "3.13"
 
-dynamic = ["dependencies"]
-dependencies = { file = ["requirements.txt"] }
+dependencies = [
+    "fastapi[standard]~=0.115.8",
+    "uvicorn~=0.34.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black==25.1.0",
+    "pre-commit==5.0.0",
+]
+
+[tool.black]
+profile = "black"
+line-lenhth = 120
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
