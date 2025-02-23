@@ -1,3 +1,4 @@
-#/.idea/
+/.idea/
 .venv
 git_PAT.txt
+/.idea/workspace.xml
