@@ -1,0 +1,43 @@
+name: Dashboard
+on:
+  push:
+    paths:
+      - '**'
+  pull_request:
+    paths:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install .
+      - name: Lint code
+        run: |
+          pip install flake8
+          flake8 app
+      - name: Code formatting
+        run: |
+          pip install black
+          black . --check
+      - name: Type checking
+        run: |
+          pip install mypy
+          mypy app
+      - name: Sort imports
+        run: |
+          pip install isort
+          isort app tests
+      - name: Run tests
+        run: |
+          pip install pytest
+          pytest tests/.
