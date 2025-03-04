@@ -3,7 +3,7 @@ repos:
     rev: 21.9b0
     hooks:
       - id: black
-        args: [--safe]
+        args: [ --safe ]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
@@ -32,6 +32,6 @@ repos:
   - repo: https://github.com/mypy/mypy
     rev: 1.15.0
     hooks:
-        - id: mypy
-          name: mypy (Type checker)
-          files: \.py$
+      - id: mypy
+        name: mypy (Type checker)
+        files: \.py$

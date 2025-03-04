@@ -20,28 +20,23 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -e .
-
+          pip install .
       - name: Lint code
         run: |
           pip install flake8
           flake8 app
-
       - name: Code formatting
         run: |
           pip install black
           black . --check
-
       - name: Type checking
         run: |
           pip install mypy
           mypy app
-
       - name: Sort imports
         run: |
           pip install isort
           isort app tests
-
       - name: Run tests
         run: |
           pip install pytest

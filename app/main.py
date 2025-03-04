@@ -11,5 +11,5 @@ def read_root() -> dict[str, str]:
 
 
 @app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None) -> dict[str, Union[str, int] | None]:
+def read_item(item_id: int, q: str = None) -> dict[str, str | None]:
     return {"item_id": item_id, "q": q}
