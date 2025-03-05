@@ -1,4 +1,6 @@
-/.idea/
-.venv
+.idea/
+.venv/
 git_PAT.txt
-/.idea/workspace.xml
+.venv1
+*.egg-info/
+/build/
