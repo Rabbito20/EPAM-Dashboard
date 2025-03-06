@@ -1,4 +1,4 @@
-name: Dashboard-ci
+name: Dashboard
 on:
   push:
     paths:
@@ -20,24 +20,19 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install .
+          pip install .[dev]
       - name: Lint code
         run: |
-          pip install flake8
-          flake8 app
+          flake8 app tests
       - name: Code formatting
         run: |
-          pip install black
           black . --check
       - name: Type checking
         run: |
-          pip install mypy
-          mypy app
+          mypy app tests
       - name: Sort imports
         run: |
-          pip install isort
           isort app tests
       - name: Run tests
         run: |
-          pip install pytest
-          pytest tests/.
+          pytest tests
