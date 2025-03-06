@@ -16,11 +16,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "black==25.1.0",
-    "pre-commit==4.1.0",
-    "mypy==1.15.0",
-    "isort==6.0.0",
-    "pytest==8.3.4",
+    "black",
+    "pre-commit",
+    "mypy",
+    "isort",
+    "pytest",
+    "flake8",
 ]
 
 [tool.black]
