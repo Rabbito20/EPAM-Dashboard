@@ -23,16 +23,16 @@ jobs:
           pip install .[dev]
       - name: Lint code
         run: |
-          flake8 .
+          flake8 app tests
       - name: Code formatting
         run: |
           black . --check
       - name: Type checking
         run: |
-          mypy .
+          mypy app tests
       - name: Sort imports
         run: |
-          isort .
+          isort app tests
       - name: Run tests
         run: |
           pytest tests
