@@ -16,19 +16,25 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "black==25.1.0",
-    "pre-commit==5.0.0",
-    "mypy==1.15.0",
+    "black",
+    "pre-commit",
+    "mypy",
+    "isort",
+    "pytest",
+    "flake8",
 ]
 
 [tool.black]
-line-lenhth = 120
-target-version=["py313"]
+line-length = 120
+target-version = ["py313"]
 
 [tool.mypy]
-files="app"
-python_version="3.13"
-strict=true
+files = "."
+python_version = "3.13"
+
+[tool.isort]
+profile = "black"
+line_length = 120
 
 [build-system]
 requires = ["setuptools", "wheel"]

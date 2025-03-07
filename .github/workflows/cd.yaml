@@ -1,0 +1,14 @@
+name: Dashboard-cd
+on:
+  push:
+    paths:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Build docker image
+        run: docker build -t epam_dashboard .
