@@ -8,11 +8,7 @@ client = TestClient(app)
 def test_create_project():
     response = client.post(
         "/projects",
-        json={
-            "project_name": "Test Project",
-            "project_author": "Test Author",
-            "description": "Test Description"
-        }
+        json={"project_name": "Test Project", "project_author": "Test Author", "description": "Test Description"},
     )
     assert response.status_code == 200
     assert len(projects) > 0
