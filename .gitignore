@@ -4,3 +4,4 @@
 git_PAT.txt
 *.egg-info/
 build/
+*/__pycache__
