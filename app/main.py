@@ -41,9 +41,7 @@ class User:
 @app.post("/projects", status_code=200)
 def create_projects(project: ProjectCreateRequest):
     p = Project(
-        project_name=project.project_name,
-        project_author=project.project_author,
-        description=project.description
+        project_name=project.project_name, project_author=project.project_author, description=project.description
     )
     projects.append(p)
     return {"message": "Project created", "project_id": p.project_id}
