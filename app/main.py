@@ -7,7 +7,7 @@ app = FastAPI()
 projects = []
 
 
-class ProjectCreateRequest(BaseModel):
+class ProjectRequest(BaseModel):
     project_name: str
     project_author: str
     description: str
@@ -37,9 +37,8 @@ class User:
         self.user_id = random.Random().getrandbits(8)
 
 
-#   Create project
 @app.post("/projects", status_code=200)
-def create_projects(project: ProjectCreateRequest):
+def create_projects(project: ProjectRequest):
     p = Project(
         project_name=project.project_name, project_author=project.project_author, description=project.description
     )
@@ -47,13 +46,12 @@ def create_projects(project: ProjectCreateRequest):
     return {"message": "Project created", "project_id": p.project_id}
 
 
-#   Get all Projects
+#   GET all Projects
 @app.get("/projects", status_code=201)
 def get_all_projects():
     return {"project_id's": projects}
 
 
-#   Get project details
 @app.get("/project/{project_id}", status_code=200)
 def get_project_details(project_id: int):
     for _ in projects:
@@ -63,14 +61,30 @@ def get_project_details(project_id: int):
     raise HTTPException(status_code=404, detail="Project not found")
 
 
-#   UPDATE project
-#   Should be @post?
-def update_project(project_id: int):
-    pass
+@app.put("/project/{project_id}", status_code=200)
+def update_project(project_id: int, updated_data: ProjectRequest):
+    for p in projects:
+        if p.project_id == project_id:
+            if updated_data.project_name is not None:
+                p.project_name = updated_data.project_name
+            if updated_data.project_author is not None:
+                p.project_author = updated_data.project_author
+            if updated_data.description is not None:
+                p.description = updated_data.description
+            return {"message": "Project updated successfully", "p": p.get_project_details()}
+
+    raise HTTPException(status_code=404, detail="Project not found")
 
 
-#   DELETE a project
-#   todo
+@app.delete("/project/{project_id}", status_code=200)
+def delete_project(project_id: int):
+    for index, p in enumerate(projects):
+        if p.project_id == project_id:
+            del projects[index]  # Remove project from the list
+            return {"message": f"Project ${project_id} deleted successfully"}
+
+    raise HTTPException(status_code=404, detail="Project not found")
+
 
 #   Fill list for now, remove when DB gets implemented
 p = Project(project_name="Proj 5", project_author="Nikola", description="Desc")
