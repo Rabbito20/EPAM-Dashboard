@@ -81,7 +81,7 @@ def delete_project(project_id: int):
     for index, p in enumerate(projects):
         if p.project_id == project_id:
             del projects[index]  # Remove project from the list
-            return {"message": f"Project ${project_id} deleted successfully"}
+            return {"message": f"Project {project_id} deleted successfully"}
 
     raise HTTPException(status_code=404, detail="Project not found")
 
