@@ -1,4 +1,7 @@
-/.idea/
-.venv
+.idea/
+.venv/
+.venv1/
 git_PAT.txt
-/.idea/workspace.xml
+*.egg-info/
+build/
+*/__pycache__
