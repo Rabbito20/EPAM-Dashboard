@@ -51,11 +51,9 @@ def create_projects(project: ProjectRequest):
 def get_all_projects():
     return {"project_id's": projects}
 
-
 @app.get("/")
 def read_root():
     return {"Hello": "EPAM PROJECT START"}
-
 
 @app.get("/project/{project_id}", status_code=200)
 def get_project_details(project_id: int):
